@@ -10,7 +10,7 @@ from components.header import show_header  # ✅ Import the reusable header
 
 show_header()  # ✅ Call the function to display the header
 
-BACKEND_URL = "http://127.0.0.1:8000"
+BACKEND_URL =   "https://elegant-embrace-production.up.railway.app"                                                      #"http://127.0.0.1:8000"
 
 def show_data_analysis():
     st.title("Data Analysis & Processing")

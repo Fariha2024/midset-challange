@@ -73,7 +73,7 @@ def clean_data(data, options):
 
 # Function to validate addresses using an external API
 def validate_address(address):
-    api_url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=YOUR_API_KEY"
+    api_url = f"https://elegant-embrace-production.up.railway.app/geocode?address={address}"
     response = requests.get(api_url).json()
     if response["status"] == "OK":
         return response["results"][0]["formatted_address"]

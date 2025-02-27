@@ -1,9 +1,6 @@
 import streamlit as st
 import pandas as pd
-import streamlit as st
-from components.header import show_header  # ✅ Import the reusable header
 
-show_header()  # ✅ Call the function to display the header
 
 def show_upload_section():
     st.subheader("📤 Upload Data")

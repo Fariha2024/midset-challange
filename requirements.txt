@@ -154,3 +154,11 @@ yarl==1.18.3
 zope.event==5.0
 zope.interface==7.2
 zstandard==0.23.0
+fastapi
+uvicorn
+pandas
+numpy
+scikit-learn
+requests
+fuzzywuzzy
+python-phonenumbers
