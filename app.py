@@ -4,6 +4,8 @@ import os  # ✅ Import os module
 from components.sidebar import show_sidebar  # ✅ Import sidebar
 from components.header import show_header  # ✅ Import header
 PORT = int(os.getenv("PORT", 8501))  # Use Railway's assigned port or default to 8501
+
+
 def show_hero_section():
     st.markdown("""
     ### Welcome to Smart Data Tool
