@@ -1,0 +1,54 @@
+import streamlit as st
+import requests
+import json
+from components.sidebar import show_sidebar  # ✅ Import sidebar
+from streamlit_option_menu import option_menu
+selected, sub_selected = show_sidebar()
+
+from components.header import show_header  # ✅ Import the reusable header
+
+show_header()  # ✅ Call the function to display the header
+
+BACKEND_URL = "http://127.0.0.1:8000/api_request/"  # Update if your backend runs on a different port
+
+def show_api_options():
+    st.title("API Connection - Smart Data Tool")
+    st.subheader("Connect via API (REST, GraphQL)")
+
+    api_type = st.radio("Select API Type:", ["REST API", "GraphQL API"])
+
+    url = st.text_input("Enter API Endpoint (URL):")
+    headers = st.text_area("Enter Headers (JSON format):", "{}")
+    method = st.selectbox("Select HTTP Method:", ["GET", "POST", "PUT", "DELETE"])
+
+    if api_type == "REST API":
+        body = st.text_area("Enter Request Body (JSON format, if applicable):", "{}")
+
+    elif api_type == "GraphQL API":
+        body = st.text_area("Enter GraphQL Query:", "{}")
+
+    if st.button("Send Request"):
+        try:
+            headers_dict = json.loads(headers)
+            body_dict = json.loads(body) if body else None
+
+            request_data = {
+                "url": url,
+                "headers": headers_dict,
+                "body": body_dict,
+                "method": method
+            }
+
+            response = requests.post(BACKEND_URL, json=request_data)
+
+            if response.status_code == 200:
+                st.subheader("Response:")
+                st.json(response.json())
+            else:
+                st.error(f"Error: {response.status_code} - {response.text}")
+
+        except Exception as e:
+            st.error(f"Error: {e}")
+
+if __name__ == "__main__":
+    show_api_options()

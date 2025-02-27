@@ -1,0 +1,13 @@
+import os
+
+assets_path = "assets"
+placeholder_file = os.path.join(assets_path, "placeholder.txt")
+
+# Ensure the assets folder exists
+os.makedirs(assets_path, exist_ok=True)
+
+# Create a placeholder file
+with open(placeholder_file, "w") as f:
+    f.write("This is a placeholder file to ensure the assets folder is included.")
+
+print(f"Placeholder file created at: {placeholder_file}")
