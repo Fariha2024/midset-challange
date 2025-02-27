@@ -161,4 +161,4 @@ numpy
 scikit-learn
 requests
 fuzzywuzzy
-python-phonenumbers
+phonenumbers
