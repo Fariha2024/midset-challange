@@ -3,7 +3,7 @@ import streamlit as st
 def show_header():
     st.markdown(
         """
-        st.write("Smart Data Tool is designed to help users clean, organize, and analyze their data efficiently.")
+        
         <style>
             .header {
                 background-color: #415A77;
